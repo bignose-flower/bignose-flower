@@ -1,8 +1,31 @@
 $(function(){
 
+  // let reloadMessages = function() {
+  //   let last_message_id = $('.Main-Middle__box_single:last').data("message-id");
+  //   $.ajax({
+  //     url: "api/messages",
+  //     type: 'GET',
+  //     dataType: 'json',
+  //     data: {id: last_message_id}
+  //   })
+  //   .done(function(messages) {
+  //     if (message.length !== 0){
+  //       let insertHTML = '';
+  //       $.each(messages, function(i, message) {
+  //         insertHTML += buildHTML(message)
+  //       });
+  //       $('.MessageField').append(insertHTML);
+  //       $(".Main-Middle").animate({ scrollTop: $('.Main-Middle__box')[0].scrollHeight});
+  //     }
+  //   })
+  //   .fail(function(){
+  //     alert('error');
+  //   })
+  // }
+
   function buildHTML(message){
     if (message.image){
-      let html = `<div class="Main-Middle__box_single">
+      let html = `<div class="Main-Middle__box_single" data-message-id=${message.id}>
       <ul class="Main-Middle__box_single_namelists">
         <li class="Main-Middle__box_single_namelists_name ">${message.user_name}</li>
         <li class="Main-Middle__box_single_namelists_date">${message.created_at}</li>
@@ -15,7 +38,7 @@ $(function(){
       
       return html;
     }else {
-      let html = `<div class="Main-Middle__box_single">
+      let html = `<div class="Main-Middle__box_single" data-message-id=${message.id}>
       <ul class="Main-Middle__box_single_namelists">
         <li class="Main-Middle__box_single_namelists_name ">${message.user_name}</li>
         <li class="Main-Middle__box_single_namelists_date">${message.created_at}</li>
@@ -52,4 +75,5 @@ $(function(){
       alert('メッセージ送信に失敗しました。');
     })
   })
+  // setInterval(reloadMessages, 7000);
 });
