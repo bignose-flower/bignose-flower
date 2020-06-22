@@ -1,0 +1,9 @@
+.Main-Middle__box_single
+  %ul.Main-Middle__box_single_namelists
+    %li.Main-Middle__box_single_namelists_name 
+      = message.user.name
+    %li.Main-Middle__box_single_namelists_date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  %p.Main-Middle__box_single_message
+    = message.content
+  = image_tag message.image.url, class: 'Main-Middle__box_singe_message' if message.image.present?

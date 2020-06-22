@@ -1,0 +1,23 @@
+.Side
+  .Side-Header
+    .Side-Header__box
+      %p.Side-Header__box_name 
+        = current_user.name
+      %ul.Side-Header__box_lists
+        %li
+          = link_to new_group_path() do
+            %i.fa.fa-plus-square{:style => "padding-right: 10px"}
+        %li
+          = link_to edit_user_path(current_user) do
+            %i.fa.fa-cog
+  .Side-Main
+    %ul.Side-Main__lists
+      - if @groups
+        - @groups.each do |group|
+          .Side-Main__lists_element
+            = link_to group_messages_path(group) do
+              %li.Side-Main__lists_element_name 
+                = group.name
+              %li.Side-Main__lists_element_message 
+                = group.show_last_message
+              

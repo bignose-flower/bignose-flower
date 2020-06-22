@@ -1,0 +1,29 @@
+.Main
+  .Main-Header
+    .Main-Header__box
+      %ul.Main-Header__box_lists
+        %li 
+          = @group.name
+        %li
+          %ul.Main-Header__box_lists_members
+            Member :
+            - @group.users.each do |member|
+              %li.Main-Header__box_lists_members_member 
+                = member.name
+      = link_to edit_group_path(@group), {class: "Main-Header__box_edit"} do
+        Edit
+          
+  .Main-Middle
+    .Main-Middle
+      .Main-Middle__box
+        = render partial: 'message', collection: @messages
+                  
+  .Main-Bottom
+    = form_with model: [@group, @message], html: {class: 'Main-Bottom__form'}, local: true do |form|
+      .Main-Bottom__form_content
+        = form.text_field :content, {placeholder: "type a message", class: "Main-Bottom__form_content_text"}
+        = form.label :image, {class: "Main-Bottom__form_content_image"} do
+          %i.fa.fa-images
+          = form.file_field :image
+      = form.submit "SEND", {class: "Main-Bottom__form_btn"}
+            

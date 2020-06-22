@@ -1,0 +1,205 @@
+@mixin flx_cent{
+    display: flex;
+    align-items: center;
+}
+@mixin flx_cent_btwn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@mixin flx_btwn{
+    display: flex;
+    justify-content: space-between;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper{
+    display: flex;
+}
+
+.Side{
+    width: 300px;
+    background-color: #253141;
+
+    & .Side-Header{
+        height: 100px;
+        background-color: #253141;
+        border-bottom: 1px solid #eee;
+        @include flx_cent;
+
+        &__box{
+            height: 20px;
+            width: 260px;
+            margin: 0 20px;
+            @include flx_cent_btwn;
+            color: #fff;
+            
+            &_name{
+                font-size: 16px;
+            }
+
+            &_lists{
+                list-style: none;
+                display: flex;
+                & i{
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    & .Side-Main{
+        height: calc(100vh - 100px);
+        background-color: #2f3e51;
+
+        &__lists{
+            font-weight: bold;
+
+            &_element{
+                padding: 20px 20px 40px 20px;
+            
+                &_name{
+                    color: #fff;
+                    font-size: 15px;
+                    margin-bottom: 5px;
+                }
+                &_message{
+                    color: #fff;
+                    font-size: 11px;
+                }
+            }
+        }
+
+    }
+}
+
+.Main{
+    width: calc(100vw - 300px);
+    background-color: #fff;
+    height: 100vh;
+
+    & .Main-Header{
+        height: 100px;
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+
+        &__box{
+            @include flx_cent_btwn;
+            margin: 0 40px;
+            
+            &_lists{
+                color: #333;
+                font-size: 20px;
+                margin: 35px 0 0 0;
+                color: #333;
+
+                &_members{
+                    display: flex;
+                    color: #999;
+                    font-size: 12px;
+                    margin-top: 15px;
+
+                    &_member{
+                        margin-left: 5px;
+                    }
+                }
+            }
+
+            &_edit{
+                display: block;
+                padding: 0 20px;
+                height: 40px;
+                width: 72px;
+                color: #38aef0;
+                font-size: 16px;
+                line-height: 40px;
+                border: 1px solid #38aef0;
+                text-decoration: none;
+            }
+        }
+    }
+    & .Main-Middle{
+        height: calc(100vh - 190px);
+        background-color: #fafafa;
+        overflow: scroll;
+        
+        &__box{
+            margin-top: 35px;
+            margin-left: 40px;
+
+            &_single{
+                margin-bottom: 46px;
+                
+                &_namelists{
+                    margin-bottom: 12px;
+                    display: flex;
+
+                    &_name{
+                        color: #333;
+                        font-size: 16px;
+                    }
+                    &_date{
+                        color: #999;
+                        font-size: 12px;
+                        margin-left: 8px;
+                    }
+                }
+                &_message{
+                    color: #434a54;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    & .Main-Bottom{
+        height: 90px;
+        background-color: #d2d2d2;
+        @include flx_cent;
+        
+        &__form{
+            @include flx_btwn;
+            margin: 0 40px;
+            width: 100%;
+
+            &_content{
+                background-color: #fff;
+                width: 100%;
+                position: relative;
+
+                &_text{
+                    border: none;
+                    height: 50px;
+                    width: 100%;
+                    padding: 0 45px 0 15px;
+                }
+                &_image{
+                    height: 50px;
+                    position: absolute;
+                    right: 10px;
+                    top: 0;
+                }
+                &_image > i{
+                    cursor: pointer;
+                    font-size: 25px;
+                    line-height: 50px;
+                }
+                &_image > input{
+                    display: none;
+                }
+            }
+            &_btn{
+                padding: 0 30px;
+                margin-left: 15px;
+                background-color: #38aef0;
+                color: #fff;
+                font-size: 16px;
+                height: 50px;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
