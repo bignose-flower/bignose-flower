@@ -2,7 +2,7 @@ $(function(){
 
   function buildHTML(message){
     if (message.image){
-      let html = `<div class="Main-Middle__box_single">
+      let html = `<div class="Main-Middle__box_single" data-message-id=${message.id}>
       <ul class="Main-Middle__box_single_namelists">
         <li class="Main-Middle__box_single_namelists_name ">${message.user_name}</li>
         <li class="Main-Middle__box_single_namelists_date">${message.created_at}</li>
@@ -15,7 +15,7 @@ $(function(){
       
       return html;
     }else {
-      let html = `<div class="Main-Middle__box_single">
+      let html = `<div class="Main-Middle__box_single" data-message-id=${message.id}>
       <ul class="Main-Middle__box_single_namelists">
         <li class="Main-Middle__box_single_namelists_name ">${message.user_name}</li>
         <li class="Main-Middle__box_single_namelists_date">${message.created_at}</li>
